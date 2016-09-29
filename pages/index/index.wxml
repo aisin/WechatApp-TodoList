@@ -1,0 +1,31 @@
+<view class="page">
+    <toast hidden="{{tipsHidden}}" icon="warn" duration="3000" bindchange="bindCloseTips">
+        请输入任务
+    </toast>
+
+    <view class="create">
+        <view class="section">
+            <input bindinput="bindTask" placeholder="想做点什么呢？" value="{{task}}" />
+        </view>
+        <view class="section">
+            <view class="btn-area">
+                <button bindtap="toCreate" type="default" size="mini">创建一个任务</button>
+            </view>
+        </view>
+    </view>
+
+    <view class="head">共 {{taskList.length}} 项任务</view>
+
+    <view class="lists">
+        <block wx:for-items="{{taskList}}">
+            <view wx:if="{{item.done}}" id="{{item.id}}" class="task-li done" bindtap="toggleDone">
+                <view class="icon-done"></view>
+                <view class="content">{{item.text}}</view>
+            </view>
+            <view wx:else id="{{item.id}}" class="task-li un-done" bindtap="toggleDone">
+                <view class="icon-done"></view>
+                <view class="content">{{item.text}}</view>
+            </view>
+        </block>
+    </view>
+</view>

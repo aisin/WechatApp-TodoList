@@ -1,0 +1,12 @@
+<view class="page">
+    <view class="head">未完成任务 {{taskList.length}} 项</view>
+
+    <view class="lists">
+        <block wx:for-items="{{taskList}}">
+            <view id="{{item.id}}" class="task-li un-done" bindtap="toDone">
+                <view class="icon-done"></view>
+                <view class="content">{{item.text}}</view>
+            </view>
+        </block>
+    </view>
+</view>
