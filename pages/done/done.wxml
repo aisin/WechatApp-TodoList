@@ -3,9 +3,14 @@
 
     <view class="lists">
         <block wx:for-items="{{taskList}}">
-            <view id="{{item.id}}" class="task-li done" bindtap="toUndone">
-                <view class="icon-done"></view>
-                <view class="content">{{item.text}}</view>
+            <view class="task-li done">
+                <view class="task-li-con" id="{{item.id}}" bindtap="toUndone">
+                    <view class="icon-done"></view>
+                    <view class="content">{{item.text}}</view>
+                </view>
+                <view class="task-li-remove" id="{{item.id}}" bindtap="toRemove">
+                    <view class="icon-remove">X</view>
+                </view>
             </view>
         </block>
     </view>

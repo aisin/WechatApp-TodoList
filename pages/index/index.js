@@ -1,5 +1,4 @@
 const pageData = {
-    
     data: {
         taskList: [],
         task: '',
@@ -21,7 +20,7 @@ const pageData = {
     toCreate: function () {
         let taskList = this.data.taskList;
         if (this.data.task.trim().length < 1) {
-            this.bindTips();
+            this.toShowTips();
         } else {
             taskList.unshift({
                 id: Date.now(),
@@ -48,9 +47,26 @@ const pageData = {
         wx.setStorageSync('taskList', modify);
     },
 
-    bindCloseTips: function () {
+    toRemove: function (e) {
+        let id = e.currentTarget.id;
+        let modify = this.data.taskList.filter((item) => {
+            return item.id != id;
+        });
+        this.setData({
+            'taskList': modify
+        });
+        wx.setStorageSync('taskList', modify);
+    },
+
+    toHideTips: function () {
         this.setData({
             tipsHidden: true
+        });
+    },
+
+    toShowTips: function () {
+        this.setData({
+            tipsHidden: false
         });
     }
 };

@@ -27,6 +27,21 @@ const pageData = {
         this.setData({
             taskList: taskUndone
         });
+    },
+
+    toRemove: function (e) {
+        let id = e.currentTarget.id;
+        let taskList = wx.getStorageSync('taskList');
+        let taskLeft = taskList.filter((item) => {
+            return item.id != id;
+        });
+        let modify = taskLeft.filter((item) => {
+            return !item.done;
+        });
+        this.setData({
+            'taskList': modify
+        });
+        wx.setStorageSync('taskList', taskLeft);
     }
 };
 

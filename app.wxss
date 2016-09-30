@@ -65,13 +65,22 @@
 }
 
 .task-li{
-    padding: 10px 15px;
+    /*padding: 10px 15px;*/
     position: relative;
     display: -webkit-box;
     display: -webkit-flex;
     display: flex;
     -webkit-box-align: center;
     -webkit-align-items: center;
+    align-items: center;
+}
+
+.task-li-con{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    flex: 1;
+    padding: 10px 0 10px 15px;
     align-items: center;
 }
 
@@ -100,7 +109,7 @@
 }
 
 .icon-done{
-    display: inline-block;
+    display: block;
     width: 4px;
     height: 4px;
     border-radius: 50%;
@@ -119,4 +128,23 @@
 
 .un-done .icon-done{
     border: 6px solid #1992F5;
+}
+
+.task-li-remove{
+    padding: 15px 15px 15px 5px;
+}
+
+.icon-remove{
+    /*padding: 0 5px;*/
+    text-align: right;
+    color: #fff;
+    font-size: 12px;
+    background: #d3e8f9;
+    font-family: "Helvetica Neue", Helvetica, Microsoft Yahei, Hiragino Sans GB, WenQuanYi Micro Hei, sans-serif;
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
+    text-align: center;
+    border-radius: 50%;
+    
 }
